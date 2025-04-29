@@ -15,10 +15,10 @@ function App() {
     setPeliculaSeleccionada(pelicula);
     setVista('detalles');
   };
-
+  {/*Encabezado*/}
   return (
     <div className="min-h-screen bg-gray-100 p-6 flex flex-col justify-between">
-      {/* Encabezado */}
+      
       <header className="flex flex-col sm:flex-row justify-between items-center mb-8 bg-white shadow-md p-4 rounded-lg">
         <h1 className="text-4xl font-extrabold text-blue-900 text-center mb-4 sm:mb-0">
         QuickFlicks
@@ -39,7 +39,7 @@ function App() {
         </div>
       </header>
 
-      {/* Contenido dinámico */}
+      {/*Contenido dinámico*/}
       <main className="flex-grow">
         {vista === 'inicio' && (
           <div>
@@ -80,7 +80,7 @@ function App() {
         )}
       </main>
 
-      {/* Footer */}
+      {/*Footer*/}
       <footer className="bg-white shadow-inner p-4 mt-10 text-center rounded-lg text-sm text-gray-600">
         © {new Date().getFullYear()} Buscador de Películas. Todos los derechos reservados.
       </footer>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// Hook personalizado para manejar la lógica de películas y favoritas
+
 const usePeliculas = () => {
   const CLAVE_API = 'a2b30413';
   const URL_API = `https://www.omdbapi.com/?apikey=${CLAVE_API}`;
@@ -10,9 +10,9 @@ const usePeliculas = () => {
     JSON.parse(localStorage.getItem('favoritas')) || []
   );
 
-  // Cargar películas recientes (simulando "Now Playing")
+  // En este apartado carga las peliculas y ademas se simula el now playing
   useEffect(() => {
-    const anioActual = 2025; // Usamos 2025 para incluir películas como Minecraft
+    const anioActual = 2025; 
     fetch(`${URL_API}&s=movie&y=${anioActual}&type=movie`)
       .then((respuesta) => respuesta.json())
       .then((datos) => {
@@ -26,12 +26,12 @@ const usePeliculas = () => {
       .catch((error) => console.error('Error al obtener películas recientes:', error));
   }, [URL_API]);
 
-  // Guardar favoritas en localStorage
+  // aqui guarda las favoritas localStorage
   useEffect(() => {
     localStorage.setItem('favoritas', JSON.stringify(favoritas));
   }, [favoritas]);
 
-  // Buscar películas por título
+  // aca se buscan las peliculas por medio del titulo
   const buscarPeliculas = (terminoBusqueda) => {
     if (!terminoBusqueda.trim()) {
       alert('Por favor, ingrese un título de película.');
@@ -49,7 +49,7 @@ const usePeliculas = () => {
       .catch((error) => console.error('Error al buscar películas:', error));
   };
 
-  // Alternar película en favoritas
+
   const alternarFavorita = (pelicula) => {
     const esFavorita = favoritas.some((fav) => fav.imdbID === pelicula.imdbID);
     if (esFavorita) {
@@ -63,9 +63,9 @@ const usePeliculas = () => {
 };
 
 /**
- * Custom hook for managing and retrieving movie-related data.
+ * 
  *
- * @returns {any} The data or functionality provided by the usePeliculas hook.
- */
+ * @returns {any} T
+ * */
 
 export default usePeliculas;
